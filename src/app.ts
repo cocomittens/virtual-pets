@@ -1,7 +1,6 @@
 import { App } from '@jovotech/framework';
 
 import { GlobalComponent } from './components/GlobalComponent';
-import { LoveHatePizzaComponent } from './components/LoveHatePizzaComponent';
 import { Tutorial } from './components/Tutorial';
 
 /*
@@ -23,7 +22,7 @@ const app = new App({
   | Learn more here: www.jovo.tech/docs/components
   |
   */
-  components: [GlobalComponent, LoveHatePizzaComponent, Tutorial],
+  components: [GlobalComponent, Tutorial],
 
   /*
   |--------------------------------------------------------------------------
