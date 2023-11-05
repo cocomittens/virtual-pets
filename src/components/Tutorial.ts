@@ -1,6 +1,6 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
 
-import { YesNoOutput } from '../output/YesNoOutput';
+import { ChoosePetOutput } from '../output/ChoosePetOutput';
 
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +15,24 @@ import { YesNoOutput } from '../output/YesNoOutput';
 export class Tutorial extends BaseComponent {
   START() {
     this.$send('Welcome to Virtual Pet Haven');
-    return this.$send(YesNoOutput, { message: 'Do you want to adopt a dog, cat or bunny?' });
+    return this.$send(ChoosePetOutput, { message: 'Do you want to adopt a dog, cat or bunny?' });
   }
 
-  @Intents(['YesIntent'])
-  lovesPizza() {
-    return this.$send({ message: 'Yes! I love pizza, too.', listen: false });
+  @Intents(['DogIntent'])
+  likesDogs() {
+    return this.$send({ message: 'You have chosen a dog!', listen: false });
   }
 
-  @Intents(['NoIntent'])
-  hatesPizza() {
-    return this.$send({ message: `That's OK! Not everyone likes pizza.`, listen: false });
+  @Intents(['CatIntent'])
+  likesCats() {
+    return this.$send({ message: `You have chosen a cat!`, listen: false });
   }
+
+  @Intents(['BunnyIntent'])
+  likesBunnies() {
+    return this.$send({ message: `You have chosen a bunny!`, listen: false });
+  }
+
 
   UNHANDLED() {
     return this.START();
