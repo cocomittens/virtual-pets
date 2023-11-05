@@ -33,7 +33,6 @@ export class Tutorial extends BaseComponent {
     return this.$send({ message: `You have chosen a bunny!`, listen: false });
   }
 
-
   UNHANDLED() {
     return this.START();
   }

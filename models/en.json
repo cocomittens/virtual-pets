@@ -1,5 +1,5 @@
 {
-  "invocation": "Virtual Pet Haven",
+  "invocation": "virtual pet haven",
   "version": "4.0",
   "intents": {
     "YesIntent": {
@@ -15,26 +15,23 @@
         "no thanks"
       ]
     },
-    "DogIntent": {
+    "SelectPetIntent": {
       "phrases": [
-        "dog",
-        "doggy",
-        "doggo"
-      ]
-    },
-    "CatIntent": {
-      "phrases": [
-        "cat",
-        "kitty",
-        "kitten"
-      ]
-    },
-    "BunnyIntent": {
-      "phrases": [
-        "bunny",
-        "rabbit",
-        "bunbun"
-      ]
+        "{petType}",
+        "{petType} pet",
+        "I would like {petType}",
+        "I choose {petType}"
+      ],
+      "entities": {
+        "petType": {
+          "type": "PetType"
+        }
+      }
+    }
+  },
+  "entityTypes": {
+    "PetType": {
+      "values": ["dog", "cat", "bunny"]
     }
   }
 }
