@@ -18,19 +18,9 @@ export class Tutorial extends BaseComponent {
     return this.$send(ChoosePetOutput, { message: 'Do you want to adopt a dog, cat or bunny?' });
   }
 
-  @Intents(['DogIntent'])
-  likesDogs() {
-    return this.$send({ message: 'You have chosen a dog!', listen: false });
-  }
-
-  @Intents(['CatIntent'])
-  likesCats() {
-    return this.$send({ message: `You have chosen a cat!`, listen: false });
-  }
-
-  @Intents(['BunnyIntent'])
-  likesBunnies() {
-    return this.$send({ message: `You have chosen a bunny!`, listen: false });
+  @Intents(['PetTypeIntent'])
+  collectPetType() {
+    return this.$resolve('success', this.$entities.petType?.resolved)
   }
 
   UNHANDLED() {
