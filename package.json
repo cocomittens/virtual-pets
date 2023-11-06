@@ -19,6 +19,7 @@
     "@jovotech/client-web": "^4.5.17",
     "@jovotech/db-filedb": "^4.5.2",
     "@jovotech/framework": "^4.5.2",
+    "@jovotech/platform-alexa": "^4.5.17",
     "@jovotech/plugin-debugger": "^4.5.2",
     "@jovotech/server-express": "^4.5.2",
     "mobx": "^6.10.2",

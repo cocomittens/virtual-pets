@@ -15,22 +15,6 @@ export class ChoosePetOutput extends BaseOutput {
     return {
       quickReplies: ['dog', 'cat', 'bunny'],
       listen: true,
-      platforms: {
-        alexa: {
-          nativeResponse: {
-            response: {
-              directives: [
-                {
-                  type: 'Alexa.Presentation.APL.RenderDocument',
-                  token: '',
-                  document: {},
-                  datasources: {},
-                },
-              ],
-            },
-          },
-        },
-      },
     };
   }
 }

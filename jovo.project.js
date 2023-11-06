@@ -1,5 +1,6 @@
 //@ts-check
 const { ProjectConfig } = require('@jovotech/cli-core');
+const { AlexaCli } = require('@jovotech/platform-alexa');
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,12 @@ const { ProjectConfig } = require('@jovotech/cli-core');
 const project = new ProjectConfig({
   endpoint: '${JOVO_WEBHOOK_URL}',
   plugins: [
-    // Add Jovo CLI plugins here
+    new AlexaCli({
+      locales: {
+        en: ['en-US'],
+      },
+      skillId: 'amzn1.ask.skill.cb4926de-d3d8-4794-880f-84557722ad8f',
+    }),
   ],
 });
 
