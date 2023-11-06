@@ -23,17 +23,14 @@ export class ChoosePetOutput extends BaseOutput {
                 {
                   type: 'Alexa.Presentation.APL.RenderDocument',
                   token: '',
-                  document: {
-                    
-                  },
-                  datasources: {
-                    
-                  },
+                  document: {},
+                  datasources: {},
                 },
-            ],
-          }
-        }
-      }
+              ],
+            },
+          },
+        },
+      },
     };
   }
 }
