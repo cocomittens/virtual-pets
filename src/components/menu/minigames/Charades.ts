@@ -12,7 +12,7 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 @Component()
 export class Charades extends BaseComponent {
   START() {
-    this.$send('Adventure minigame');
+    this.$send('Charades minigame');
   }
 
   UNHANDLED() {
