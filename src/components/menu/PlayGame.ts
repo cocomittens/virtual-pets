@@ -1,5 +1,7 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
 
+import { ChooseGameOutput } from '../../output/ChooseGameOutput';
+
 /*
 |--------------------------------------------------------------------------
 | Component
@@ -12,7 +14,7 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 @Component()
 export class PlayGame extends BaseComponent {
   START() {
-    this.$send('Feed pet');
+    return this.$send(ChooseGameOutput, { message: 'Which game would you like to play?' });
   }
 
   @Intents(['GameTypeIntent'])
