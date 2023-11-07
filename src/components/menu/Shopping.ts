@@ -12,7 +12,7 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 @Component()
 export class Shopping extends BaseComponent {
   START() {
-    this.$send('Go shopping');
+    return this.$send('Go shopping');
   }
 
   UNHANDLED() {
