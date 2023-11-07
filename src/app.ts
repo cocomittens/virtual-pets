@@ -3,6 +3,12 @@ import { AlexaPlatform } from '@jovotech/platform-alexa';
 
 import { GlobalComponent } from './components/GlobalComponent';
 import { Tutorial } from './components/ftue/Tutorial';
+import { CreatePet } from './components/ftue/CreatePet';
+import { MainMenu } from './components/menu/MainMenu';
+import { Customize } from './components/menu/Customize';
+import { Feed } from './components/menu/Feed';
+import { PlayGame } from './components/menu/PlayGame';
+import { Shopping } from './components/menu/Shopping';
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +29,7 @@ const app = new App({
   | Learn more here: www.jovo.tech/docs/components
   |
   */
-  components: [GlobalComponent, Tutorial],
+  components: [GlobalComponent, Tutorial, CreatePet, MainMenu, Customize, Feed, PlayGame, Shopping],
 
   /*
   |--------------------------------------------------------------------------
