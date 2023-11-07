@@ -1,5 +1,5 @@
 import { Component, BaseComponent, Global } from '@jovotech/framework';
-import { Tutorial } from './Tutorial';
+import { Tutorial } from './ftue/CreatePet';
 
 /*
 |--------------------------------------------------------------------------

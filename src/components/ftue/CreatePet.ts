@@ -1,6 +1,6 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
 
-import { ChoosePetOutput } from '../output/ChoosePetOutput';
+import { ChoosePetOutput } from '../../output/ChoosePetOutput';
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ export class Tutorial extends BaseComponent {
 
   @Intents(['PetTypeIntent'])
   collectPetType() {
-    return this.$resolve('success', this.$entities.petType?.resolved)
+    return this.$resolve('success', this.$entities.petType?.resolved);
   }
 
   UNHANDLED() {
