@@ -12,7 +12,7 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 @Component()
 export class Intro extends BaseComponent {
   START() {
-    return this.$send('Welcome to Virtual Pet Haven');
+    return this.$send('Welcome to Pixel Pals');
   }
 
   UNHANDLED() {
