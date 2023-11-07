@@ -12,9 +12,8 @@ import { ChoosePetOutput } from '../../output/ChoosePetOutput';
 |
 */
 @Component()
-export class Tutorial extends BaseComponent {
+export class CreatePet extends BaseComponent {
   START() {
-    this.$send('Welcome to Virtual Pet Haven');
     return this.$send(ChoosePetOutput, { message: 'Do you want to adopt a dog, cat or bunny?' });
   }
 

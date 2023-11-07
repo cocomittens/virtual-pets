@@ -1,5 +1,5 @@
 import { Component, BaseComponent, Global } from '@jovotech/framework';
-import { Tutorial } from './ftue/CreatePet';
+import { Intro } from './ftue/Intro';
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,6 @@ import { Tutorial } from './ftue/CreatePet';
 @Component()
 export class GlobalComponent extends BaseComponent {
   LAUNCH() {
-    return this.$redirect(Tutorial);
+    return this.$redirect(Intro);
   }
 }

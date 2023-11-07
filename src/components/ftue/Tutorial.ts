@@ -10,9 +10,9 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 |
 */
 @Component()
-export class Intro extends BaseComponent {
+export class Tutorial extends BaseComponent {
   START() {
-    return this.$send('Welcome to Virtual Pet Haven');
+    return this.$send('This is how to take care of your new pet!');
   }
 
   UNHANDLED() {
