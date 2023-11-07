@@ -8,6 +8,29 @@
     "NoIntent": {
       "phrases": ["no", "no thanks"]
     },
+    "MenuIntent": {
+      "phrases": ["menu", "main menu", "go to menu", "go to main menu"]
+    },
+    "ShoppingIntent": {
+      "phrases": ["go shopping", "shopping", "go to the store", "store", "buy", "buy something"]
+    },
+    "CustomizeIntent": {
+      "phrases": ["customize", "customize pet", "customize my pet", "change pet", "change my pet"]
+    },
+    "FeedIntent": {
+      "phrases": ["feed", "feed pet", "feed my pet", "food", "feed food"]
+    },
+    "PlayGameIntent": {
+      "phrases": ["play a game", "play game"]
+    },
+    "ChooseGameIntent": {
+      "phrases": ["{gameName}", "play a {gameName}", "play {gameName}"],
+      "entities": {
+        "gameName": {
+          "type": "GameName"
+        }
+      }
+    },
     "PetTypeIntent": {
       "phrases": ["{petType}", "{petType} pet", "I would like {petType}", "I choose {petType}"],
       "entities": {
@@ -20,6 +43,9 @@
   "entityTypes": {
     "PetType": {
       "values": ["dog", "cat", "bunny"]
+    },
+    "GameName": {
+      "values": ["adventure", "quiz", "charades"]
     }
   },
   "alexa": {
