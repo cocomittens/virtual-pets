@@ -1,7 +1,11 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
+
 import { Shopping } from './Shopping';
 import { Feed } from './Feed';
 import { Customize } from './Customize';
+import { PlayGame } from './PlayGame';
+
+import { MenuOutput } from '../../output/MenuOutput';
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +19,7 @@ import { Customize } from './Customize';
 @Component()
 export class MainMenu extends BaseComponent {
   START() {
-    this.$send('Welcome to Virtual Pet Haven');
+    return this.$send(MenuOutput, { message: 'What would you like to do?' });
   }
 
   @Intents(['ShoppingIntent'])
@@ -31,6 +35,11 @@ export class MainMenu extends BaseComponent {
   @Intents(['CustomizeIntent'])
   goCustomize() {
     return this.$redirect(Customize);
+  }
+
+  @Intents(['PlayGameIntent'])
+  goPlayGame() {
+    return this.$redirect(PlayGame);
   }
 
   UNHANDLED() {

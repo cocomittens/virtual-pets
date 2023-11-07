@@ -1,5 +1,5 @@
 import { Component, BaseComponent, Global } from '@jovotech/framework';
-import { MainMenu } from './MainMenu';
+import { MainMenu } from './menu/MainMenu';
 
 /*
 |--------------------------------------------------------------------------
