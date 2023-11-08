@@ -1,6 +1,8 @@
 flowchart TD
-A[Christmas] -->|Get money| B(Go shopping)
-B --> C{Let me think}
-C -->|One| D[Laptop]
-C -->|Two| E[iPhone]
-C -->|Three| F[fa:fa-car Car]
+A{First Time User}
+A -->|Yes| B[View Intro]
+B --> C[Choose Pet]
+C --> D[Name Pet]
+D --> E[Tutorial]
+E --> F[Main Menu]
+A -->|No| F[Main Menu]
