@@ -15,6 +15,11 @@ export class Quiz extends BaseComponent {
     this.$send('Quiz minigame');
   }
 
+  @Intents(['AnswerIntent'])
+  getAnswer() {
+    return this.$send(this.$entities.AnswerValue?.value);
+  }
+
   UNHANDLED() {
     return this.START();
   }

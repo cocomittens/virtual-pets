@@ -38,6 +38,14 @@
           "type": "PetType"
         }
       }
+    },
+    "AnswerIntent": {
+      "phrases": ["{answer}", "the answer is {answer}", "answer is {answer}"],
+      "entities": {
+        "petType": {
+          "type": "AnswerValue"
+        }
+      }
     }
   },
   "entityTypes": {
@@ -46,6 +54,9 @@
     },
     "GameName": {
       "values": ["adventure", "quiz", "charades"]
+    },
+    "AnswerValue": {
+      "values": ["true", "false", "a", "b", "c", "d"]
     }
   },
   "alexa": {
