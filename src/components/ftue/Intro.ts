@@ -18,20 +18,19 @@ export class Intro extends BaseComponent {
       message: 'Welcome to pixel pals!',
       listen: false,
       platforms: {
-        alexa: this.$device.supports('ALEXA:APL')
-          ? {
-              nativeResponse: {
-                response: {
-                  directives: [
-                    {
-                      type: 'Alexa.Presentation.APL.RenderDocument',
-                      document: main,
-                    },
-                  ],
+        alexa: {
+          nativeResponse: {
+            response: {
+              directives: [
+                {
+                  type: 'Alexa.Presentation.APL.RenderDocument',
+                  token: 'introToken',
+                  document: main,
                 },
-              },
-            }
-          : {}, //  no screen
+              ],
+            },
+          },
+        },
       },
     });
   }
