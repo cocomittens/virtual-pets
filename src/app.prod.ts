@@ -1,5 +1,5 @@
 import { app } from './app';
-import { FileDb } from '@jovotech/db-FileDb';
+import { DynamoDb } from '@jovotech/db-dynamodb';
 import { JovoDebugger } from '@jovotech/plugin-debugger';
 
 /*
@@ -13,8 +13,19 @@ import { JovoDebugger } from '@jovotech/plugin-debugger';
 */
 app.configure({
   plugins: [
-    new FileDb({
-      pathToFile: '../db/db.json',
+    new DynamoDb({
+      table: {
+        name: 'pixel-pets',
+      },
+      libraryConfig: {
+        dynamoDbClient: {
+          region: 'us-east-1',
+          credentials: {
+            accessKeyId: process.env.ACCESS_KEY,
+            secretAccessKey: process.env.SECRET_ACCESS_KEY,
+          },
+        },
+      },
     }),
     new JovoDebugger(),
   ],
