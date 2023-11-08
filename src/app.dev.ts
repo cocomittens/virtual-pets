@@ -17,6 +17,15 @@ app.configure({
       table: {
         name: 'pixel-pets',
       },
+      libraryConfig: {
+        dynamoDbClient: {
+          region: 'us-east-1',
+          credentials: {
+            accessKeyId: process.env.ACCESS_KEY,
+            secretAccessKey: process.env.SECRET_ACCESS_KEY,
+          },
+        },
+      },
     }),
     new JovoDebugger(),
   ],
