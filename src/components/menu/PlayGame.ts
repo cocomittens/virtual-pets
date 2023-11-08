@@ -17,15 +17,27 @@ import { Quiz } from './minigames/Quiz';
 | Learn more here: www.jovo.tech/docs/components, jovo.tech/docs/handlers
 |
 */
+
+type minigames = 'Adventure' | 'Charades' | 'Quiz';
+
+const games = {
+  Adventure,
+  Charades,
+  Quiz,
+};
+
 @Component()
 export class PlayGame extends BaseComponent {
   START() {
     return this.$send(ChooseGameOutput, { message: 'Which game would you like to play?' });
   }
 
-  @Intents(['GameTypeIntent'])
+  @Intents(['ChooseGameIntent'])
   collectGameType() {
-    return this.$resolve('success', this.$entities.gameType?.resolved);
+    const gameName = capitalize(this.$entities.gameName?.value);
+    const game = games[gameName as minigames];
+    console.log('game: ', game);
+    return this.$redirect(game);
   }
 
   UNHANDLED() {

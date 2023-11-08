@@ -9,6 +9,9 @@ import { Customize } from './components/menu/Customize';
 import { Feed } from './components/menu/Feed';
 import { PlayGame } from './components/menu/PlayGame';
 import { Shopping } from './components/menu/Shopping';
+import { Adventure } from './components/menu/minigames/Adventure';
+import { Charades } from './components/menu/minigames/Charades';
+import { Quiz } from './components/menu/minigames/Quiz';
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +32,19 @@ const app = new App({
   | Learn more here: www.jovo.tech/docs/components
   |
   */
-  components: [GlobalComponent, Tutorial, CreatePet, MainMenu, Customize, Feed, PlayGame, Shopping],
+  components: [
+    GlobalComponent,
+    Tutorial,
+    CreatePet,
+    MainMenu,
+    Customize,
+    Feed,
+    PlayGame,
+    Shopping,
+    Adventure,
+    Charades,
+    Quiz,
+  ],
 
   /*
   |--------------------------------------------------------------------------
