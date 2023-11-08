@@ -13,7 +13,7 @@ export class ChooseGameOutput extends BaseOutput {
   */
   build(): OutputTemplate | OutputTemplate[] {
     return {
-      quickReplies: ['adventure', 'charades', 'quiz'],
+      quickReplies: ['memory', 'charades', 'quiz'],
       listen: true,
     };
   }
