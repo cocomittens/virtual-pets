@@ -2,7 +2,7 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 
 import { ChooseGameOutput } from '../../../output/ChooseGameOutput';
 
-import { capitalize } from '../../../util/Capitalize';
+import { capitalize } from '../../../util/capitalize';
 
 import { Memory } from './Memory';
 import { Charades } from './Charades';
