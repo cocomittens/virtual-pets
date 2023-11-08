@@ -17,11 +17,13 @@
   },
   "dependencies": {
     "@jovotech/client-web": "^4.5.17",
+    "@jovotech/db-dynamodb": "^4.5.17",
     "@jovotech/db-filedb": "^4.5.2",
     "@jovotech/framework": "^4.5.2",
     "@jovotech/platform-alexa": "^4.5.17",
     "@jovotech/plugin-debugger": "^4.5.2",
     "@jovotech/server-express": "^4.5.2",
+    "@jovotech/server-lambda": "^4.5.17",
     "mobx": "^6.10.2",
     "mobx-react-lite": "^4.0.5",
     "react": "^18.2.0",
