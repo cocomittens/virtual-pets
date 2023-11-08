@@ -4,7 +4,7 @@ import { ChooseGameOutput } from '../../output/ChooseGameOutput';
 
 import { capitalize } from '../../util/Capitalize';
 
-import { Adventure } from './minigames/Adventure';
+import { Memory } from './minigames/Memory';
 import { Charades } from './minigames/Charades';
 import { Quiz } from './minigames/Quiz';
 
@@ -18,10 +18,10 @@ import { Quiz } from './minigames/Quiz';
 |
 */
 
-type minigames = 'Adventure' | 'Charades' | 'Quiz';
+type minigames = 'Memory' | 'Charades' | 'Quiz';
 
 const games = {
-  Adventure,
+  Memory,
   Charades,
   Quiz,
 };

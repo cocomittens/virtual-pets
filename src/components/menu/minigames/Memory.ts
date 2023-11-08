@@ -10,9 +10,9 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 |
 */
 @Component()
-export class Adventure extends BaseComponent {
+export class Memory extends BaseComponent {
   START() {
-    this.$send('Adventure minigame');
+    this.$send('Memory minigame');
   }
 
   UNHANDLED() {
