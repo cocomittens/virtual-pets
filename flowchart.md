@@ -6,6 +6,10 @@ C --> D[Name Pet]
 D --> E[Tutorial]
 A -->|No| F{Is Hungry?}
 E --> F{Is Hungry?}
-F --> |Yes| G[F]
+F --> |Yes| G[Notify]
 G --> I[Main Menu]
 F --> |No| I[Main Menu]
+I --> J{Choose Action}
+J --> |Minigame| K[Play minigame]
+J --> |Feed| L[Feed pet]
+J --> |Customize| M[Customize pet]
