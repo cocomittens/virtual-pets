@@ -1,5 +1,7 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
 
+import main from '../../apl/main.json';
+
 /*
 |--------------------------------------------------------------------------
 | Component
@@ -12,7 +14,26 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 @Component()
 export class Intro extends BaseComponent {
   START() {
-    return this.$send('Welcome to Pixel Pals');
+    return this.$send({
+      message: 'Welcome to pixel pals!',
+      listen: false,
+      platforms: {
+        alexa: this.$device.supports('ALEXA:APL')
+          ? {
+              nativeResponse: {
+                response: {
+                  directives: [
+                    {
+                      type: 'Alexa.Presentation.APL.RenderDocument',
+                      document: main,
+                    },
+                  ],
+                },
+              },
+            }
+          : {}, //  no screen
+      },
+    });
   }
 
   UNHANDLED() {

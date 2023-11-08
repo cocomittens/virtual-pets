@@ -15,6 +15,6 @@ import { MainMenu } from './menu/MainMenu';
 @Component()
 export class GlobalComponent extends BaseComponent {
   LAUNCH() {
-    return this.$redirect(MainMenu);
+    return this.$redirect(Intro);
   }
 }
