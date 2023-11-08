@@ -1,9 +1,8 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
 
-import { Shopping } from './Shopping';
 import { Feed } from './Feed';
-import { Customize } from './Customize';
-import { PlayGame } from './PlayGame';
+import { Customize } from './customize/Customize';
+import { PlayGame } from './minigames/PlayGame';
 
 import { MenuOutput } from '../../output/MenuOutput';
 
@@ -20,11 +19,6 @@ import { MenuOutput } from '../../output/MenuOutput';
 export class MainMenu extends BaseComponent {
   START() {
     return this.$send(MenuOutput, { message: 'What would you like to do?' });
-  }
-
-  @Intents(['ShoppingIntent'])
-  goShopping() {
-    return this.$redirect(Shopping);
   }
 
   @Intents(['FeedIntent'])

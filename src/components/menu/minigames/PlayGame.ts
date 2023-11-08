@@ -1,12 +1,12 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
 
-import { ChooseGameOutput } from '../../output/ChooseGameOutput';
+import { ChooseGameOutput } from '../../../output/ChooseGameOutput';
 
-import { capitalize } from '../../util/Capitalize';
+import { capitalize } from '../../../util/Capitalize';
 
-import { Memory } from './minigames/Memory';
-import { Charades } from './minigames/Charades';
-import { Quiz } from './minigames/Quiz';
+import { Memory } from './Memory';
+import { Charades } from './Charades';
+import { Quiz } from './Quiz';
 
 /*
 |--------------------------------------------------------------------------
