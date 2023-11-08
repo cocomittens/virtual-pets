@@ -12,12 +12,12 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 @Component()
 export class Quiz extends BaseComponent {
   START() {
-    this.$send('Quiz minigame');
+    this.$send('What is the best animal? A. Dog, B. Cat, C. Bunny, D. All of the above?');
   }
 
   @Intents(['AnswerIntent'])
   getAnswer() {
-    return this.$send(this.$entities.AnswerValue?.value);
+    return this.$send(this.$entities.answer?.value);
   }
 
   UNHANDLED() {

@@ -42,7 +42,7 @@
     "AnswerIntent": {
       "phrases": ["{answer}", "the answer is {answer}", "answer is {answer}"],
       "entities": {
-        "petType": {
+        "answer": {
           "type": "AnswerValue"
         }
       }
