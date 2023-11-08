@@ -33,11 +33,9 @@ export class PlayGame extends BaseComponent {
   }
 
   @Intents(['ChooseGameIntent'])
-  collectGameType() {
-    const gameName = capitalize(this.$entities.gameName?.value);
-    const game = games[gameName as minigames];
-    console.log('game: ', game);
-    return this.$redirect(game);
+  chooseGame() {
+    const game = capitalize(this.$entities.gameName?.value);
+    return this.$redirect(games[game as minigames]);
   }
 
   UNHANDLED() {
