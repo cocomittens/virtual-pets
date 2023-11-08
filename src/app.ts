@@ -9,7 +9,7 @@ import { Customize } from './components/menu/customize/Customize';
 import { Feed } from './components/menu/Feed';
 import { PlayGame } from './components/menu/minigames/PlayGame';
 import { Shopping } from './components/menu/customize/Shopping';
-import { Adventure } from './components/menu/minigames/Memory';
+import { Memory } from './components/menu/minigames/Memory';
 import { Charades } from './components/menu/minigames/Charades';
 import { Quiz } from './components/menu/minigames/Quiz';
 import { Intro } from './components/ftue/Intro';
@@ -43,7 +43,7 @@ const app = new App({
     Feed,
     PlayGame,
     Shopping,
-    Adventure,
+    Memory,
     Charades,
     Quiz,
   ],
