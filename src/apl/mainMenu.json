@@ -11,8 +11,8 @@
     "parameters": ["payload"],
     "items": [
       {
-        "type": "Text",
-        "text": "Main Menu"
+        "type": "Image",
+        "source": "../img/bunny.png"
       }
     ]
   }
