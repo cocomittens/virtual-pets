@@ -1,4 +1,5 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
+import { charade } from '../../../../copy/minigames/charades';
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,8 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 @Component()
 export class Charades extends BaseComponent {
   START() {
-    this.$send('Charades minigame');
+    this.$send('Welcome to charades!');
+    return this.$send(charade.hints[0]);
   }
 
   @Intents(['GuessIntent'])
