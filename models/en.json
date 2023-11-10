@@ -46,6 +46,26 @@
           "type": "AnswerValue"
         }
       }
+    },
+    "GuessIntent": {
+      "phrases": ["is it {answer}", "guess {answer}", "the answer is {answer}"],
+      "entities": {
+        "answer": {
+          "type": "AnswerValue"
+        }
+      }
+    },
+    "NextClueIntent": {
+      "phrases": [
+        "next clue",
+        "give me another clue",
+        "another clue",
+        "clue",
+        "another hint",
+        "hint",
+        "give me a hint",
+        "next hint"
+      ]
     }
   },
   "entityTypes": {

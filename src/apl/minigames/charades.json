@@ -13,6 +13,16 @@
       {
         "type": "Text",
         "text": "Charades minigame"
+      },
+      {
+        "type": "Text",
+        "id": "timerText",
+        "text": "Time left: 30 seconds"
+      },
+      {
+        "type": "Text",
+        "id": "scoreText",
+        "text": "Score: 0"
       }
     ]
   }
