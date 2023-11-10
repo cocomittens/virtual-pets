@@ -1,6 +1,6 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
 
-import main from '../../apl/main.json';
+import mainMenu from '../../apl/mainMenu.json';
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ export class Intro extends BaseComponent {
                 {
                   type: 'Alexa.Presentation.APL.RenderDocument',
                   token: 'introToken',
-                  document: main,
+                  document: mainMenu,
                 },
               ],
             },
