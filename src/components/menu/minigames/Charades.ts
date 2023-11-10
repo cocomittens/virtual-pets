@@ -20,9 +20,9 @@ export class Charades extends BaseComponent {
     return this.$send(this.$entities.answer?.value);
   }
 
-  @Intents(['NextClueIntent'])
+  @Intents(['HintIntent'])
   handleClue() {
-    return this.$send('Clue');
+    return this.$send('Give a clue');
   }
 
   UNHANDLED() {

@@ -23,6 +23,9 @@
     "PlayGameIntent": {
       "phrases": ["play a game", "play game"]
     },
+    "BackIntent": {
+      "phrases": ["back", "go back"]
+    },
     "ChooseGameIntent": {
       "phrases": ["{gameName}", "play a {gameName}", "play {gameName}"],
       "entities": {
@@ -55,16 +58,14 @@
         }
       }
     },
-    "NextClueIntent": {
+    "HintIntent": {
       "phrases": [
-        "next clue",
         "give me another clue",
         "another clue",
         "clue",
         "another hint",
         "hint",
-        "give me a hint",
-        "next hint"
+        "give me a hint"
       ]
     }
   },
