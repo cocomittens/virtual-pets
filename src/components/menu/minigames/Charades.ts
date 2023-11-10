@@ -15,9 +15,9 @@ export class Charades extends BaseComponent {
     this.$send('Charades minigame');
   }
 
-  @Intents(['Guess Intent'])
+  @Intents(['GuessIntent'])
   handleGuess() {
-    return this.$send('Guess');
+    return this.$send(this.$entities.answer?.value);
   }
 
   @Intents(['NextClueIntent'])
