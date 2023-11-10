@@ -12,7 +12,7 @@
     "items": [
       {
         "type": "Image",
-        "source": "../img/bunny.png"
+        "source": "https://pixel-pet-paradise.s3.amazonaws.com/bunny.png"
       }
     ]
   }
