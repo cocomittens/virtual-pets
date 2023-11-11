@@ -12,11 +12,7 @@
     "items": [
       {
         "type": "Image",
-        "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/next.png"
-      },
-      {
-        "type": "Image",
-        "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/prev.png"
+        "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/money.png"
       }
     ]
   }
