@@ -36,11 +36,6 @@
             "alignItems": "center",
             "items": [
               {
-                "type": "Text",
-                "text": "Choose Pet",
-                "color": "@text"
-              },
-              {
                 "type": "Container",
                 "width": "70vw",
                 "direction": "row",
