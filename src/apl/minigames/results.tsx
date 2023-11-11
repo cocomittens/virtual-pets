@@ -1,4 +1,4 @@
-export const Results = () => {
+export const Results = (xp: number, money: number) => {
   return {
     type: 'APL',
     version: '1.0',
@@ -13,7 +13,11 @@ export const Results = () => {
       items: [
         {
           type: 'Text',
-          text: 'Results screen',
+          text: `XP: ${xp}`,
+        },
+        {
+          type: 'Text',
+          text: `Money: ${money}`,
         },
       ],
     },
