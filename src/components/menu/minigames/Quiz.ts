@@ -11,7 +11,13 @@ import { question } from '../../../../copy/minigames/quiz';
 */
 @Component()
 export class Quiz extends BaseComponent {
+  score = 0;
+
   START() {
+    this.score = 0;
+  }
+
+  askQuestion() {
     return this.$send({
       message: question.question,
       listen: true,
@@ -20,7 +26,18 @@ export class Quiz extends BaseComponent {
 
   @Intents(['AnswerIntent'])
   getAnswer() {
-    return this.$send(this.$entities.answer?.value);
+    const userAnswer = this.$entities.answer?.value;
+    if (userAnswer === question.correctAnswer) {
+      this.score++;
+      this.$send({ message: "That's correct!" });
+    } else {
+      this.$send({ message: "Sorry, that's not right." });
+    }
+    this.endQuiz();
+  }
+
+  endQuiz() {
+    return this.$send({ message: `Quiz finished! Your score is ${this.score}.` });
   }
 
   UNHANDLED() {
