@@ -28,23 +28,29 @@ export const navBar = (left?: boolean, mid?: string, right?: boolean) => {
       text: 'Title',
     };
   };
-};
+  const renderRight = () => {
+    return {
+      type: 'Container',
+      direction: 'row',
+      items: [
+        {
+          type: 'Image',
+          source: 'https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/money.png',
+          width: '10vw',
+          height: '10vw',
+        },
+        {
+          type: 'Text',
+          text: '200',
+        },
+      ],
+    };
+  };
 
-const renderRight = () => {
   return {
     type: 'Container',
     direction: 'row',
-    items: [
-      {
-        type: 'Image',
-        source: 'https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/money.png',
-        width: '10vw',
-        height: '10vw',
-      },
-      {
-        type: 'Text',
-        text: '200',
-      },
-    ],
+    justifyContent: 'spaceBetween',
+    items: [left && renderLeft(), mid && renderMid(), right && renderRight()],
   };
 };
