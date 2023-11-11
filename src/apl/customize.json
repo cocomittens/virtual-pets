@@ -11,12 +11,30 @@
     "parameters": ["payload"],
     "items": [
       {
-        "type": "Image",
-        "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/next.png"
+        "type": "TouchWrapper",
+        "width": "100dp",
+        "height": "50dp",
+        "onPress": {
+          "type": "SendEvent",
+          "arguments": ["Button was pressed"]
+        },
+        "item": {
+          "type": "Image",
+          "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/next.png"
+        }
       },
       {
-        "type": "Image",
-        "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/prev.png"
+        "type": "TouchWrapper",
+        "width": "100dp",
+        "height": "50dp",
+        "onPress": {
+          "type": "SendEvent",
+          "arguments": ["Button was pressed"]
+        },
+        "item": {
+          "type": "Image",
+          "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/prev.png"
+        }
       }
     ]
   }
