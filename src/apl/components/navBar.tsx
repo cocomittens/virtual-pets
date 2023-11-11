@@ -25,7 +25,7 @@ export const navBar = (left?: boolean, mid?: string, right?: boolean) => {
   const renderMid = () => {
     return {
       type: 'Text',
-      text: 'Title',
+      text: mid,
     };
   };
   const renderRight = () => {

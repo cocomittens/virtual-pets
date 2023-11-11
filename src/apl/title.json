@@ -11,8 +11,10 @@
     "parameters": ["payload"],
     "items": [
       {
-        "type": "Text",
-        "text": "Title Screen"
+        "type": "Image",
+        "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/title.png",
+        "width": "100vw",
+        "height": "100vh"
       }
     ]
   }
