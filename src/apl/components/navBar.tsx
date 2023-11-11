@@ -3,7 +3,7 @@
 // center: title or xp bar
 // right: money
 
-export const navBar = (left?: boolean, mid?: string, right?: boolean) => {
+export const NavBar = (left?: boolean, mid?: string | null, right?: boolean) => {
   const renderLeft = () => {
     return {
       type: 'TouchWrapper',
