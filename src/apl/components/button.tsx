@@ -1,4 +1,4 @@
-export const button = () => {
+export const Button = (text: string) => {
   return {
     type: 'TouchWrapper',
     width: '100dp',
@@ -9,7 +9,7 @@ export const button = () => {
     },
     item: {
       type: 'Text',
-      text: 'Press Me',
+      text,
       color: 'white',
       backgroundColor: 'blue',
       textAlign: 'center',

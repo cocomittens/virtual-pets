@@ -1,3 +1,4 @@
+import { Button } from '../components/button';
 export const Results = (xp: number, money: number) => {
   return {
     type: 'APL',
@@ -19,6 +20,7 @@ export const Results = (xp: number, money: number) => {
           type: 'Text',
           text: `Money: ${money}`,
         },
+        Button('Play Again'),
       ],
     },
   };
