@@ -2,14 +2,19 @@
   "type": "APL",
   "version": "2023.2",
   "settings": {},
-  "theme": "dark",
   "import": [
     {
       "name": "alexa-layouts",
       "version": "1.7.0"
     }
   ],
-  "resources": [],
+  "resources": [
+    {
+      "colors": {
+        "text": "#565A5C"
+      }
+    }
+  ],
   "styles": {},
   "onMount": [],
   "graphics": {},
@@ -19,70 +24,80 @@
     "parameters": ["payload"],
     "items": [
       {
-        "type": "Container",
-        "width": "100vw",
-        "height": "100vh",
-        "direction": "column",
-        "justifyContent": "center",
-        "alignItems": "center",
+        "type": "Frame",
+        "backgroundColor": "#fff",
         "items": [
           {
-            "type": "Text",
-            "text": "Choose Pet"
-          },
-          {
             "type": "Container",
-            "direction": "row",
-            "justifyContent": "spaceEvenly",
+            "width": "100vw",
+            "height": "100vh",
+            "direction": "column",
+            "justifyContent": "center",
+            "alignItems": "center",
             "items": [
               {
-                "type": "Container",
-                "direction": "column",
-                "alignItems": "center",
-                "items": [
-                  {
-                    "type": "Image",
-                    "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/bunny.png",
-                    "width": "20vw",
-                    "height": "20vw"
-                  },
-                  {
-                    "type": "Text",
-                    "text": "Bunny"
-                  }
-                ]
+                "type": "Text",
+                "text": "Choose Pet",
+                "color": "@text"
               },
               {
                 "type": "Container",
-                "direction": "column",
-                "alignItems": "center",
+                "direction": "row",
+                "justifyContent": "spaceEvenly",
                 "items": [
                   {
-                    "type": "Image",
-                    "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/cat.png",
-                    "width": "20vw",
-                    "height": "20vw"
+                    "type": "Container",
+                    "direction": "column",
+                    "alignItems": "center",
+                    "items": [
+                      {
+                        "type": "Image",
+                        "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/bunny.png",
+                        "width": "20vw",
+                        "height": "20vw"
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Bunny",
+                        "color": "@text"
+                      }
+                    ]
                   },
                   {
-                    "type": "Text",
-                    "text": "Cat"
-                  }
-                ]
-              },
-              {
-                "type": "Container",
-                "direction": "column",
-                "alignItems": "center",
-                "items": [
-                  {
-                    "type": "Image",
-                    "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/dog.png",
-                    "width": "20vw",
-                    "height": "20vw"
+                    "type": "Container",
+                    "direction": "column",
+                    "alignItems": "center",
+                    "items": [
+                      {
+                        "type": "Image",
+                        "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/cat.png",
+                        "width": "20vw",
+                        "height": "20vw"
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Cat",
+                        "color": "@text"
+                      }
+                    ]
                   },
                   {
-                    "type": "Text",
-                    "text": "Dog"
+                    "type": "Container",
+                    "direction": "column",
+                    "alignItems": "center",
+                    "items": [
+                      {
+                        "type": "Image",
+                        "source": "https://pixel-pet-paradise.s3.amazonaws.com/assets/dog.png",
+                        "width": "20vw",
+                        "height": "20vw"
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Dog",
+                        "color": "@text"
+                      }
+                    ]
                   }
                 ]
               }
