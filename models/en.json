@@ -3,10 +3,10 @@
   "version": "4.0",
   "intents": {
     "YesIntent": {
-      "phrases": ["yes", "yes please", "sure"]
+      "phrases": ["yes", "yes please", "sure", "yeah", "yup", "sounds good", "that's right"]
     },
     "NoIntent": {
-      "phrases": ["no", "no thanks"]
+      "phrases": ["no", "no thanks", "nah", "nope", "not really", "don't"]
     },
     "MenuIntent": {
       "phrases": ["menu", "main menu", "go to menu", "go to main menu"]
@@ -71,10 +71,23 @@
   },
   "entityTypes": {
     "PetType": {
-      "values": ["dog", "cat", "bunny"]
+      "values": [
+        {
+          "value": "puppy",
+          "synonyms": ["Dog", "Hound", "Pooch", "Canine", "Mutt", "Pup", "Doggy"]
+        },
+        {
+          "value": "kitten",
+          "synonyms": ["Cat", "Feline", "Kitty"]
+        },
+        {
+          "value": "bunny",
+          "synonyms": ["Rabbit", "Hare"]
+        }
+      ]
     },
     "GameName": {
-      "values": ["adventure", "quiz", "charades"]
+      "values": ["memory", "quiz", "charades"]
     },
     "AnswerValue": {
       "values": ["true", "false", "a", "b", "c", "d"]
