@@ -6,12 +6,22 @@
 export const navBar = (left?: boolean, mid?: string, right?: boolean) => {
   const renderLeft = () => {
     return {
-      type: 'Image',
-      source: 'https://i.imgur.com/8J0z8wz.png',
+      type: 'TouchWrapper',
       width: '10vw',
       height: '10vw',
+      onPress: {
+        type: 'SendEvent',
+        arguments: ['Button was pressed'],
+      },
+      item: {
+        type: 'Image',
+        source: 'https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/back.png',
+        width: '10vw',
+        height: '10vw',
+      },
     };
   };
+
   const renderMid = () => {
     return {
       type: 'Text',
@@ -19,6 +29,7 @@ export const navBar = (left?: boolean, mid?: string, right?: boolean) => {
     };
   };
 };
+
 const renderRight = () => {
   return {
     type: 'Container',
@@ -26,13 +37,13 @@ const renderRight = () => {
     items: [
       {
         type: 'Image',
-        source: 'https://i.imgur.com/8J0z8wz.png',
+        source: 'https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/money.png',
         width: '10vw',
         height: '10vw',
       },
       {
         type: 'Text',
-        text: 'Title',
+        text: '200',
       },
     ],
   };
