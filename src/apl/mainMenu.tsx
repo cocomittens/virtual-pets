@@ -12,7 +12,7 @@ export const MainMenu = () => {
     mainTemplate: {
       parameters: ['payload'],
       items: [
-        NavBar(false, null, true),
+        NavBar(false, null, 200),
         {
           type: 'Image',
           source: 'https://pixel-pet-paradise.s3.amazonaws.com/assets/pets/bunny.png',
