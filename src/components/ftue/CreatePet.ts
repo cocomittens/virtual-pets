@@ -14,7 +14,10 @@ import { ChoosePetOutput } from '../../output/ChoosePetOutput';
 @Component()
 export class CreatePet extends BaseComponent {
   START() {
-    return this.$send(ChoosePetOutput, { message: 'Do you want to adopt a dog, cat or bunny?' });
+    return this.$send(ChoosePetOutput, {
+      message: 'Do you want to adopt a dog, cat or bunny?',
+      listen: true,
+    });
   }
 
   @Intents(['PetTypeIntent'])
