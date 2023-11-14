@@ -3,7 +3,13 @@
 // center: title or xp bar
 // right: money
 
-export const NavBar = (left?: boolean, mid?: string | null, right?: number | null) => {
+interface NavBarProps {
+  left?: boolean;
+  mid?: string | null;
+  right?: number | null;
+}
+
+export const NavBar = (props: NavBarProps) => {
   const renderLeft = () => {
     return {
       type: 'TouchWrapper',
@@ -25,7 +31,7 @@ export const NavBar = (left?: boolean, mid?: string | null, right?: number | nul
   const renderMid = () => {
     return {
       type: 'Text',
-      text: mid,
+      text: props.mid,
     };
   };
   const renderRight = () => {
@@ -41,7 +47,7 @@ export const NavBar = (left?: boolean, mid?: string | null, right?: number | nul
         },
         {
           type: 'Text',
-          text: right,
+          text: props.right,
         },
       ],
     };
@@ -51,6 +57,6 @@ export const NavBar = (left?: boolean, mid?: string | null, right?: number | nul
     type: 'Container',
     direction: 'row',
     justifyContent: 'spaceBetween',
-    items: [left && renderLeft(), mid && renderMid(), right && renderRight()],
+    items: [props.left && renderLeft(), props.mid && renderMid(), props.right && renderRight()],
   };
 };
