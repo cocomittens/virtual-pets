@@ -12,7 +12,16 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 @Component()
 export class Customize extends BaseComponent {
   START() {
+    (this.$session.$data as { page: number }).page = 0;
     return this.$send('Customize pet');
+  }
+
+  @Intents(['NextIntent'])
+  nextPage() {
+    let page = (this.$session.$data as { page: number }).page;
+    if (page) {
+      (this.$session.$data as { page: number }).page = page + 1;
+    }
   }
 
   UNHANDLED() {
