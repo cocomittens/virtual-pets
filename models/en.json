@@ -109,7 +109,15 @@
             "name": "AMAZON.StopIntent",
             "samples": []
           },
-          { "name": "AMAZON.FallbackIntent", "samples": [] }
+          { "name": "AMAZON.FallbackIntent", "samples": [] },
+          {
+            "name": "AMAZON.NextIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.PreviousIntent",
+            "samples": []
+          }
         ]
       }
     }
