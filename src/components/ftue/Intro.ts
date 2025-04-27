@@ -1,6 +1,8 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
-import { MainMenu } from '../../apl/mainMenu';
+// import { MainMenu } from '../../apl/mainMenu';
 import { CreatePet } from './CreatePet';
+import { MainMenu } from '../menu/MainMenu';
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,26 +21,26 @@ export class Intro extends BaseComponent {
       listen: false,
     };
 
-    if ((this as any).$alexaSkill?.()?.supportsAPL()) {
-      response.platforms = {
-        alexa: {
-          nativeResponse: {
-            response: {
-              directives: [
-                {
-                  type: 'Alexa.Presentation.APL.RenderDocument',
-                  token: 'introToken',
-                  document: MainMenu,
-                },
-              ],
-            },
-          },
-        },
-      };
-    }
+    // if ((this as any).$alexaSkill?.()?.supportsAPL()) {
+    //   response.platforms = {
+    //     alexa: {
+    //       nativeResponse: {
+    //         response: {
+    //           directives: [
+    //             {
+    //               type: 'Alexa.Presentation.APL.RenderDocument',
+    //               token: 'introToken',
+    //               document: MainMenu,
+    //             },
+    //           ],
+    //         },
+    //       },
+    //     },
+    //   };
+    // }
 
     this.$send(response);
-    return this.$redirect(CreatePet);
+    return this.$redirect(MainMenu);
   }
 
   UNHANDLED() {

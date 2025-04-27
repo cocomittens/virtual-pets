@@ -19,7 +19,7 @@ export class Customize extends BaseComponent {
       page: 0,
       numPages,
     };
-    return this.$send('Customize pet');
+    return this.$send({ message: items.slice(0, pageSize).map((item) => item.name).join(', '), listen: true });
   }
 
   @Intents(['PreviousIntent'])

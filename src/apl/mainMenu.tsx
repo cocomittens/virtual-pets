@@ -1,5 +1,5 @@
 import { NavBar } from './components/navBar';
-export const MainMenu = () => {
+export const MainMenuVisuals = () => {
   return {
     type: 'APL',
     version: '1.0',
@@ -16,6 +16,8 @@ export const MainMenu = () => {
         {
           type: 'Image',
           source: 'https://pixel-pet-paradise.s3.amazonaws.com/assets/pets/bunny.png',
+          width: '80vw',
+          height: '80vw',
         },
       ],
     },

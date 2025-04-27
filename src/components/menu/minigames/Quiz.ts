@@ -20,13 +20,10 @@ export class Quiz extends BaseComponent {
   }
 
   askQuestion() {
-    return this.$send([{
-      message: question.question,
-    },
-    {
-      message: question.answers,
-      listen: true,
-    }]);
+    return this.$send({
+      message: `${question.question} ${question.answers.map((answer, index) => `(${index + 1}) ${answer}`).join(', ')}`,
+      listen:true
+    });
     }
 
   @Intents(['AnswerIntent', 'FallbackCaptureIntent'])
@@ -45,6 +42,11 @@ export class Quiz extends BaseComponent {
 
   endQuiz() {
     return this.$send({ message: `Quiz finished! Your score is ${this.score}.` });
+  }
+
+  @Intents(['HintIntent'])
+  handleClue() {
+    return this.$send('They are all great!');
   }
 
   UNHANDLED() {
