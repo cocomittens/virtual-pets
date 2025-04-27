@@ -62,6 +62,8 @@ const app = new App({
       intentMap: {
         'AMAZON.StopIntent': 'END',
         'AMAZON.CancelIntent': 'END',
+        // Route unmatched utterances to fallback capture for quiz answers
+        'AMAZON.FallbackIntent': 'FallbackCaptureIntent',
       },
     }),
   ],

@@ -50,14 +50,6 @@
         }
       }
     },
-    "GuessIntent": {
-      "phrases": ["is it {answer}", "guess {answer}", "the answer is {answer}"],
-      "entities": {
-        "answer": {
-          "type": "AnswerValue"
-        }
-      }
-    },
     "HintIntent": {
       "phrases": [
         "give me another clue",

@@ -20,22 +20,27 @@ export class Quiz extends BaseComponent {
   }
 
   askQuestion() {
-    return this.$send({
-      message: `${question.question} ${question.answers}`,
+    return this.$send([{
+      message: question.question,
+    },
+    {
+      message: question.answers,
       listen: true,
-    });
-  }
-
-  @Intents(['AnswerIntent'])
-  getAnswer() {
-    const userAnswer = this.$entities.answer?.value;
-    if (userAnswer === question.correctAnswer) {
-      this.score++;
-      this.$send({ message: "That's correct!" });
-    } else {
-      this.$send({ message: "Sorry, that's not right." });
+    }]);
     }
-    this.endQuiz();
+
+  @Intents(['AnswerIntent', 'FallbackCaptureIntent'])
+  getAnswer() {
+    // Try the structured slot first, then fallback to raw intent slot
+    let userAnswer = this.$entities.answer?.value ?? this.$entities.userAnswer?.value;
+    const correctAnswer = question.correctAnswer;
+    const isCorrect = userAnswer?.toLowerCase() === correctAnswer.toLowerCase();
+    console.log(`User answer: ${userAnswer}, Correct answer: ${correctAnswer}`);
+    if (isCorrect) this.score++;
+    return this.$send([
+      { message: isCorrect ? "That's correct!" : "Sorry, that's not right." },
+      { message: `Quiz finished! Your score is ${this.score}.`, listen: false },
+    ]);
   }
 
   endQuiz() {

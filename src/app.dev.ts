@@ -62,6 +62,7 @@ const app = new App({
       intentMap: {
         'AMAZON.StopIntent': 'END',
         'AMAZON.CancelIntent': 'END',
+        'AMAZON.FallbackIntent': 'FallbackCaptureIntent',
       },
     }),
   ],
