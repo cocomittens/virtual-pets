@@ -46,7 +46,7 @@
       "phrases": ["{answer}", "the answer is {answer}", "answer is {answer}"],
       "entities": {
         "answer": {
-          "type": "AnswerValue"
+          "type": "AMAZON.SearchQuery"
         }
       }
     },
