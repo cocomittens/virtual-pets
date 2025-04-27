@@ -1,4 +1,5 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
+import { MainMenu } from '../menu/MainMenu';
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,9 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 @Component()
 export class Tutorial extends BaseComponent {
   START() {
-    return this.$send('This is how to take care of your new pet!');
+    // show tutorial message, then navigate to main menu
+    this.$send('This is how to take care of your new pet!');
+    return this.$redirect(MainMenu);
   }
 
   UNHANDLED() {

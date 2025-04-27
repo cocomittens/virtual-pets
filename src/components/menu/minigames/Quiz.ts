@@ -15,11 +15,13 @@ export class Quiz extends BaseComponent {
 
   START() {
     this.score = 0;
+    // ask the first question to keep the session open
+    return this.askQuestion();
   }
 
   askQuestion() {
     return this.$send({
-      message: question.question,
+      message: `${question.question} ${question.answers}`,
       listen: true,
     });
   }

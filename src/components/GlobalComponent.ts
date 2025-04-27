@@ -23,7 +23,7 @@ export class GlobalComponent extends BaseComponent {
   END() {
     this.$output.push({
       message: 'Goodbye!',
-      listen: false, // <<< this ends the session
+      listen: false,
     });
     return this.$send({
       message: 'Goodbye!',
