@@ -1,6 +1,6 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
-
 import { ChoosePetOutput } from '../../output/ChoosePetOutput';
+import { Tutorial } from './Tutorial';
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,13 @@ export class CreatePet extends BaseComponent {
 
   @Intents(['PetTypeIntent'])
   collectPetType() {
-    return this.$resolve('success', this.$entities.petType?.resolved);
+    // ensure session data is initialized
+    const data = (this.$session.$data as any) ?? {};
+    data.petType = this.$entities.petType?.resolved;
+    // save back to session
+    this.$session.$data = data;
+    // proceed to tutorial
+    return this.$redirect(Tutorial);
   }
 
   UNHANDLED() {

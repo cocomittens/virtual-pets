@@ -1,6 +1,6 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
-
 import { MainMenu } from '../../apl/mainMenu';
+import { CreatePet } from './CreatePet';
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +14,13 @@ import { MainMenu } from '../../apl/mainMenu';
 @Component()
 export class Intro extends BaseComponent {
   START() {
-    return this.$send({
+    const response: any = {
       message: 'Welcome to pixel pals!',
       listen: false,
-      platforms: {
+    };
+
+    if ((this as any).$alexaSkill?.()?.supportsAPL()) {
+      response.platforms = {
         alexa: {
           nativeResponse: {
             response: {
@@ -31,8 +34,11 @@ export class Intro extends BaseComponent {
             },
           },
         },
-      },
-    });
+      };
+    }
+
+    this.$send(response);
+    return this.$redirect(CreatePet);
   }
 
   UNHANDLED() {

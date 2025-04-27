@@ -8,7 +8,7 @@
   "scripts": {
     "test": "jest",
     "tsc": "tsc",
-    "start:dev": "tsc-watch --onSuccess \"node ./dist/app.dev.js --jovo-webhook\" --noClear",
+    "start:dev": "tsc-watch --onSuccess \"node ./dist/src/server.express.js --jovo-webhook\" --noClear",
     "bundle": "esbuild --bundle --outfile=bundle/index.js --sourcemap --minify --keep-names --platform=node --target=node14 --format=cjs  --external:aws-sdk --external:@oclif/* --external:@jovotech/cli*",
     "prebundle": "rimraf bundle",
     "postbundle": "cd bundle && bestzip ../bundle.zip * && cd ..",
@@ -20,7 +20,7 @@
     "@jovotech/db-dynamodb": "^4.5.17",
     "@jovotech/db-filedb": "^4.5.2",
     "@jovotech/framework": "^4.5.2",
-    "@jovotech/platform-alexa": "^4.5.17",
+    "@jovotech/platform-alexa": "^4.6.2",
     "@jovotech/plugin-debugger": "^4.5.2",
     "@jovotech/server-express": "^4.5.2",
     "@jovotech/server-lambda": "^4.5.17",
