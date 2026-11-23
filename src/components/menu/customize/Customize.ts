@@ -19,12 +19,18 @@ export class Customize extends BaseComponent {
       page: 0,
       numPages,
     };
-    return this.$send({ message: items.slice(0, pageSize).map((item) => item.name).join(', '), listen: true });
+    return this.$send({
+      message: items
+        .slice(0, pageSize)
+        .map((item) => item.name)
+        .join(', '),
+      listen: true,
+    });
   }
 
   @Intents(['PreviousIntent'])
   prevPage() {
-    let page = (this.$session.$data as { page: number }).page;
+    const page = (this.$session.$data as { page: number }).page;
     if (page) {
       (this.$session.$data as { page: number }).page = page - 1;
     }
@@ -33,7 +39,7 @@ export class Customize extends BaseComponent {
   @Intents(['NextIntent'])
   nextPage() {
     const numPages = (this.$session.$data as { page: number; numPages: number }).numPages;
-    let page = (this.$session.$data as { page: number; numPages: number }).page;
+    const page = (this.$session.$data as { page: number; numPages: number }).page;
     if (page < numPages - 1) {
       (this.$session.$data as { page: number }).page = page + 1;
     }
