@@ -33,6 +33,17 @@ ask smapi set-interaction-model -s <skill id> -g development -l en-US \
 Avoid `jovo deploy:platform alexa`: it uploads the whole generated skill package, which
 replaces the endpoint and drops the screen (APL) interface from the skill settings.
 
+## Deploy to AWS Lambda
+
+```sh
+npm run bundle:prod           # writes bundle.zip (handler: index.handler)
+```
+
+Upload `bundle.zip` to a Node.js Lambda function in `us-east-1` with handler `index.handler`
+and an "Alexa Skills Kit" trigger for the skill ID. Its role needs DynamoDB access to the
+`pixel-pets` table (`DescribeTable`, `CreateTable`, `GetItem`, `PutItem`); the table is
+created on first run. Then set the skill's endpoint to the function's ARN.
+
 ## Demo script
 
 1. "Alexa, open pixel pet pals" → choose "bunny" → "call it Biscuit"
