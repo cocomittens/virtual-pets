@@ -35,21 +35,10 @@ export const NavBar = (props: NavBarProps) => {
     };
   };
   const renderRight = () => {
+    // TODO: restore the coin icon once assets/icons/money.png is publicly readable on S3
     return {
-      type: 'Container',
-      direction: 'row',
-      items: [
-        {
-          type: 'Image',
-          source: 'https://pixel-pet-paradise.s3.amazonaws.com/assets/icons/money.png',
-          width: '10vw',
-          height: '10vw',
-        },
-        {
-          type: 'Text',
-          text: props.right,
-        },
-      ],
+      type: 'Text',
+      text: `Coins: ${props.right}`,
     };
   };
 
@@ -57,6 +46,10 @@ export const NavBar = (props: NavBarProps) => {
     type: 'Container',
     direction: 'row',
     justifyContent: 'spaceBetween',
-    items: [props.left && renderLeft(), props.mid && renderMid(), props.right && renderRight()],
+    items: [
+      ...(props.left ? [renderLeft()] : []),
+      ...(props.mid ? [renderMid()] : []),
+      ...(props.right != null ? [renderRight()] : []),
+    ],
   };
 };

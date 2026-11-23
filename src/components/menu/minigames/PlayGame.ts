@@ -34,7 +34,12 @@ export class PlayGame extends BaseComponent {
 
   @Intents(['ChooseGameIntent'])
   chooseGame() {
-    const game = capitalize(this.$entities.gameName?.value);
+    const game = capitalize(this.$entities.gameName?.value ?? '');
+    if (!(game in games)) {
+      return this.$send(ChooseGameOutput, {
+        message: "I don't know that game. You can play memory, charades, or quiz.",
+      });
+    }
     return this.$redirect(games[game as minigames]);
   }
 

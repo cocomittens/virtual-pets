@@ -1,7 +1,9 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
+import { AlexaCapability } from '@jovotech/platform-alexa';
 
 import { Feed } from './Feed';
 import { Customize } from './customize/Customize';
+import { Shopping } from './customize/Shopping';
 import { PlayGame } from './minigames/PlayGame';
 
 import { MenuOutput } from '../../output/MenuOutput';
@@ -19,9 +21,7 @@ import { MainMenuVisuals } from '../../apl/mainMenu';
 @Component()
 export class MainMenu extends BaseComponent {
   START() {
-
-    // if ((this as any).$alexaSkill?.()?.supportsAPL()) {
-    //   console.log("APL supported");
+    if (this.$device.supports(AlexaCapability.Apl)) {
       this.$output.push({
         platforms: {
           alexa: {
@@ -31,7 +31,7 @@ export class MainMenu extends BaseComponent {
                   {
                     type: 'Alexa.Presentation.APL.RenderDocument',
                     token: 'introToken',
-                    document: MainMenuVisuals,
+                    document: MainMenuVisuals(),
                   },
                 ],
               },
@@ -39,7 +39,7 @@ export class MainMenu extends BaseComponent {
           },
         },
       });
-    // }
+    }
 
     return this.$send(MenuOutput, { message: 'What would you like to do?' });
   }
@@ -52,6 +52,11 @@ export class MainMenu extends BaseComponent {
   @Intents(['CustomizeIntent'])
   goCustomize() {
     return this.$redirect(Customize);
+  }
+
+  @Intents(['ShoppingIntent'])
+  goShopping() {
+    return this.$redirect(Shopping);
   }
 
   @Intents(['PlayGameIntent'])

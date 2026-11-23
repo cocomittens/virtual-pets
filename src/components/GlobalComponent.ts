@@ -19,16 +19,26 @@ export class GlobalComponent extends BaseComponent {
     return this.$redirect(Intro);
   }
 
-  @Handle({ global: true })
+  // prioritizedOverUnhandled: without it, each component's UNHANDLED swallows these
+  @Handle({ global: true, prioritizedOverUnhandled: true })
   END() {
-    this.$output.push({
-      message: 'Goodbye!',
-      listen: false,
-    });
     return this.$send({
       message: 'Goodbye!',
       listen: false,
     });
+  }
+
+  @Handle({ global: true, prioritizedOverUnhandled: true, intents: ['MenuIntent', 'BackIntent'] })
+  goToMenu() {
+    return this.$redirect(MainMenu);
+  }
+
+  @Handle({ global: true, prioritizedOverUnhandled: true, intents: ['AMAZON.HelpIntent'] })
+  help() {
+    this.$send(
+      'You can play a game, feed your pet, customize your pet, or go shopping. Say menu at any time to come back here, or stop to exit.',
+    );
+    return this.$redirect(MainMenu);
   }
 
   @Handle({ global: true })
