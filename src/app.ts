@@ -5,10 +5,9 @@ import { GlobalComponent } from './components/GlobalComponent';
 import { Tutorial } from './components/ftue/Tutorial';
 import { CreatePet } from './components/ftue/CreatePet';
 import { MainMenu } from './components/menu/MainMenu';
-import { Customize } from './components/menu/customize/Customize';
 import { Feed } from './components/menu/Feed';
 import { PlayGame } from './components/menu/minigames/PlayGame';
-import { Shopping } from './components/menu/customize/Shopping';
+import { Shopping } from './components/menu/Shopping';
 import { Memory } from './components/menu/minigames/Memory';
 import { Charades } from './components/menu/minigames/Charades';
 import { Quiz } from './components/menu/minigames/Quiz';
@@ -37,7 +36,6 @@ const app = new App({
     Tutorial,
     CreatePet,
     MainMenu,
-    Customize,
     Feed,
     PlayGame,
     Shopping,

@@ -1,7 +1,7 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
-import { MainMenu } from '../MainMenu';
-import { YesNoOutput } from '../../../output/YesNoOutput';
-import { FOOD_PRICE, loadPet, savePet } from '../../../util/pet';
+import { MainMenu } from './MainMenu';
+import { YesNoOutput } from '../../output/YesNoOutput';
+import { FOOD_PRICE, loadPet, savePet } from '../../util/pet';
 
 @Component()
 export class Shopping extends BaseComponent {

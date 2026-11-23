@@ -112,3 +112,4 @@ created on first run. Then set the skill's endpoint to the function's ARN.
 - `copy/minigames/` – quiz questions, charades clues, memory animals
 - `models/en.json` – voice model
 - `test/` – unit tests (`npm test`)
+- `docs/customize-notes.md` – notes on the planned pet customization feature

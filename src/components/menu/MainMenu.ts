@@ -2,8 +2,7 @@ import { Component, BaseComponent, Intents } from '@jovotech/framework';
 import { AlexaCapability } from '@jovotech/platform-alexa';
 
 import { Feed } from './Feed';
-import { Customize } from './customize/Customize';
-import { Shopping } from './customize/Shopping';
+import { Shopping } from './Shopping';
 import { PlayGame } from './minigames/PlayGame';
 import { CreatePet } from '../ftue/CreatePet';
 
@@ -47,11 +46,6 @@ export class MainMenu extends BaseComponent {
   @Intents(['FeedIntent'])
   goFeed() {
     return this.$redirect(Feed);
-  }
-
-  @Intents(['CustomizeIntent'])
-  goCustomize() {
-    return this.$redirect(Customize);
   }
 
   @Intents(['ShoppingIntent'])

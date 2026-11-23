@@ -13,7 +13,7 @@ export class MenuOutput extends BaseOutput {
   */
   build(): OutputTemplate | OutputTemplate[] {
     return {
-      quickReplies: ['play game', 'go shopping', 'customize pet', 'feed pet'],
+      quickReplies: ['play game', 'feed pet', 'go shopping'],
       listen: true,
     };
   }

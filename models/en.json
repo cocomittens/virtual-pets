@@ -43,15 +43,6 @@
         "buy something"
       ]
     },
-    "CustomizeIntent": {
-      "phrases": [
-        "customize",
-        "customize pet",
-        "customize my pet",
-        "change pet",
-        "change my pet"
-      ]
-    },
     "FeedIntent": {
       "phrases": [
         "feed",
@@ -291,14 +282,6 @@
           },
           {
             "name": "AMAZON.FallbackIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.NextIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.PreviousIntent",
             "samples": []
           }
         ]
