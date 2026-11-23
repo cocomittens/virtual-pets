@@ -6,21 +6,32 @@ food at the shop, and feed your pet. Pets get hungrier and more bored while you 
 
 ## Run locally
 
+Jovo's hosted webhook (`webhook.jovo.cloud`) no longer exists, so the Jovo Debugger and the
+default `jovo run` tunnel do not work. Use ngrok to give Alexa a public URL instead:
+
 ```sh
-npm install -g @jovotech/cli
 npm install
-jovo run        # then press "." to open the Jovo Debugger
+npx jovo run --port 3010      # local server (any free port)
+ngrok http 3010               # in a second terminal
 ```
 
-Local runs save pets to `db/db.json` (delete it to start over as a new user). The
-production stage (`src/app.prod.ts`) uses DynamoDB.
+Then set the skill's endpoint to `<ngrok url>/webhook` (Alexa developer console → Build →
+Endpoint, with the "wildcard certificate" SSL option). The ngrok URL changes every time ngrok
+restarts, and Alexa can take a few minutes to pick up a new endpoint.
 
-After changing `models/en.json`, rebuild and redeploy the Alexa model:
+Local runs save pets to `db/db.json` (replace its contents with `[]` to start over as a new
+user). The production stage (`src/app.prod.ts`) uses DynamoDB.
+
+After changing `models/en.json`, rebuild and upload just the voice model:
 
 ```sh
-jovo build:platform alexa
-jovo deploy:platform alexa
+npx jovo build:platform alexa
+ask smapi set-interaction-model -s <skill id> -g development -l en-US \
+  --interaction-model "file:build/platform.alexa/skill-package/interactionModels/custom/en-US.json"
 ```
+
+Avoid `jovo deploy:platform alexa`: it uploads the whole generated skill package, which
+replaces the endpoint and drops the screen (APL) interface from the skill settings.
 
 ## Demo script
 
