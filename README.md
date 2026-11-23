@@ -1,43 +1,44 @@
-# Jovo v4 Template
+# Pixel Pals
 
-[![Jovo Framework](https://www.jovo.tech/img/github-header.png)](https://www.jovo.tech)
+A virtual pet for Alexa, built with [Jovo v4](https://www.jovo.tech). Adopt a dog, cat or
+bunny, name it, and keep it full and happy: play minigames to earn coins, spend coins on
+food at the shop, and feed your pet. Pets get hungrier and more bored while you are away.
 
-<p>
-<a href="https://www.jovo.tech" target="_blank">Website</a> -  <a href="https://www.jovo.tech/docs" target="_blank">Docs</a> - <a href="https://www.jovo.tech/marketplace" target="_blank">Marketplace</a> - <a href="https://github.com/jovotech/jovo-v4-template" target="_blank">Template</a>   
-</p>
-
-A sample [Jovo `v4`](https://www.jovo.tech) app that makes it possible to build experiences for voice and chat platforms.
-
-This is the default template for the [`jovo new` command](https://www.jovo.tech/docs/new-command).
-
-## Getting Started
-
-> Learn more in Jovo docs: https://www.jovo.tech/docs/getting-started
-
-You can install the new Jovo CLI like this:
+## Run locally
 
 ```sh
-# Install globally
-$ npm install -g @jovotech/cli
-
-# Test the installation
-$ jovo -v
+npm install -g @jovotech/cli
+npm install
+jovo run        # then press "." to open the Jovo Debugger
 ```
 
-After successfully installing the Jovo CLI, you can install the template using the [`new` command](https://www.jovo.tech/docs/new-command):
+Local runs save pets to `db/db.json` (delete it to start over as a new user). The
+production stage (`src/app.prod.ts`) uses DynamoDB.
+
+After changing `models/en.json`, rebuild and redeploy the Alexa model:
 
 ```sh
-$ jovo new <directory>
+jovo build:platform alexa
+jovo deploy:platform alexa
 ```
 
-Change your working directory into your newly created project directory and [`run`](https://www.jovo.tech/docs/run-command) your Jovo app:
+## Demo script
 
-```sh
-# Change working directory to your previously specified directory
-$ cd <directory>
+1. "Alexa, open pixel pet pals" → choose "bunny" → "call it Biscuit"
+2. "Feed Biscuit" → uses the starter snack
+3. "Play a game" → "charades" (say "hint" for clues) → earn coins
+4. "Play quiz" or "play memory" → earn more coins
+5. "Go shopping" → "yes" to buy food → "no" to leave
+6. "Feed Biscuit" again, then "stop"
+7. Relaunch → "Welcome back", with the pet's current mood
 
-# Run local development server
-$ jovo run
-```
+"Menu" returns to the main menu from anywhere, "help" explains the loop, and "stop" exits.
 
-You can now open the Jovo Debugger with the `.` key.
+## Layout
+
+- `src/components/` – conversation flow (first-time setup, main menu, feed, shop, minigames)
+- `src/util/pet.ts` – pet state: hunger, happiness, coins, food, decay over time
+- `src/apl/` – screens for devices with a display
+- `copy/minigames/` – quiz questions, charades clues, memory animals
+- `models/en.json` – voice model
+- `test/` – unit tests (`npm test`)
