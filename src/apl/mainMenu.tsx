@@ -1,5 +1,7 @@
 import { NavBar } from './components/navBar';
-export const MainMenuVisuals = () => {
+import { Pet } from '../util/pet';
+
+export const MainMenuVisuals = (pet: Pet) => {
   return {
     type: 'APL',
     version: '1.0',
@@ -12,12 +14,27 @@ export const MainMenuVisuals = () => {
     mainTemplate: {
       parameters: ['payload'],
       items: [
-        NavBar({ right: 200 }),
         {
-          type: 'Image',
-          source: 'https://pixel-pet-paradise.s3.amazonaws.com/assets/pets/bunny.png',
-          width: '80vw',
-          height: '80vw',
+          type: 'Container',
+          width: '100vw',
+          height: '100vh',
+          direction: 'column',
+          alignItems: 'center',
+          items: [
+            NavBar({ mid: pet.name, right: pet.coins }),
+            {
+              type: 'Image',
+              source: `https://pixel-pet-paradise.s3.amazonaws.com/assets/pets/${pet.type}.png`,
+              width: '60vh',
+              height: '60vh',
+              scale: 'best-fit',
+            },
+            {
+              type: 'Text',
+              text: `Fullness ${pet.fullness}%   Happiness ${pet.happiness}%   Food ${pet.food}`,
+              textAlign: 'center',
+            },
+          ],
         },
       ],
     },

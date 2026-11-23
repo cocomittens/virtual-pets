@@ -3,31 +3,88 @@
   "version": "4.0",
   "intents": {
     "YesIntent": {
-      "phrases": ["yes", "yes please", "sure", "yeah", "yup", "sounds good", "that's right"]
+      "phrases": [
+        "yes",
+        "yes please",
+        "sure",
+        "yeah",
+        "yup",
+        "sounds good",
+        "that's right"
+      ]
     },
     "NoIntent": {
-      "phrases": ["no", "no thanks", "nah", "nope", "not really", "don't"]
+      "phrases": [
+        "no",
+        "no thanks",
+        "nah",
+        "nope",
+        "not really",
+        "don't"
+      ]
     },
     "MenuIntent": {
-      "phrases": ["menu", "main menu", "go to menu", "go to main menu"]
+      "phrases": [
+        "menu",
+        "main menu",
+        "go to menu",
+        "go to main menu"
+      ]
     },
     "ShoppingIntent": {
-      "phrases": ["go shopping", "shopping", "go to the store", "store", "buy", "buy something"]
+      "phrases": [
+        "go shopping",
+        "shopping",
+        "go to the store",
+        "go to the shop",
+        "store",
+        "shop",
+        "buy food",
+        "buy something"
+      ]
     },
     "CustomizeIntent": {
-      "phrases": ["customize", "customize pet", "customize my pet", "change pet", "change my pet"]
+      "phrases": [
+        "customize",
+        "customize pet",
+        "customize my pet",
+        "change pet",
+        "change my pet"
+      ]
     },
     "FeedIntent": {
-      "phrases": ["feed", "feed pet", "feed my pet", "food", "feed food"]
+      "phrases": [
+        "feed",
+        "feed pet",
+        "feed my pet",
+        "feed it",
+        "feed them",
+        "give food"
+      ]
     },
     "PlayGameIntent": {
-      "phrases": ["play a game", "play game"]
+      "phrases": [
+        "play a game",
+        "play game",
+        "play",
+        "games",
+        "let's play"
+      ]
     },
     "BackIntent": {
-      "phrases": ["back", "go back"]
+      "phrases": [
+        "back",
+        "go back"
+      ]
     },
     "ChooseGameIntent": {
-      "phrases": ["{gameName}", "play a {gameName}", "play {gameName}"],
+      "phrases": [
+        "{gameName}",
+        "play a {gameName}",
+        "play {gameName}",
+        "the {gameName} game",
+        "{gameName} game"
+      ],
       "entities": {
         "gameName": {
           "type": "GameName"
@@ -35,7 +92,14 @@
       }
     },
     "PetTypeIntent": {
-      "phrases": ["{petType}", "{petType} pet", "I would like {petType}", "I choose {petType}"],
+      "phrases": [
+        "a {petType}",
+        "{petType} pet",
+        "I would like a {petType}",
+        "I want a {petType}",
+        "I choose {petType}",
+        "adopt a {petType}"
+      ],
       "entities": {
         "petType": {
           "type": "PetType"
@@ -43,10 +107,19 @@
       }
     },
     "AnswerIntent": {
-      "phrases": ["{answer}", "the answer is {answer}", "answer is {answer}"],
+      "phrases": [
+        "{answer}",
+        "a {answer}",
+        "the answer is {answer}",
+        "answer is {answer}",
+        "is it a {answer}",
+        "is it {answer}",
+        "it is a {answer}",
+        "I think it is a {answer}"
+      ],
       "entities": {
         "answer": {
-          "type": "AMAZON.SearchQuery"
+          "type": "AnswerValue"
         }
       }
     },
@@ -59,30 +132,145 @@
         "hint",
         "give me a hint"
       ]
+    },
+    "NameIntent": {
+      "phrases": [
+        "{name}",
+        "call it {name}",
+        "name it {name}",
+        "its name is {name}",
+        "how about {name}"
+      ],
+      "entities": {
+        "name": {
+          "type": {
+            "alexa": "AMAZON.FirstName"
+          }
+        }
+      }
     }
   },
   "entityTypes": {
     "PetType": {
       "values": [
         {
-          "value": "puppy",
-          "synonyms": ["Dog", "Hound", "Pooch", "Canine", "Mutt", "Pup", "Doggy"]
+          "value": "dog",
+          "synonyms": [
+            "puppy",
+            "hound",
+            "pooch",
+            "pup",
+            "doggy"
+          ]
         },
         {
-          "value": "kitten",
-          "synonyms": ["Cat", "Feline", "Kitty"]
+          "value": "cat",
+          "synonyms": [
+            "kitten",
+            "kitty",
+            "feline"
+          ]
         },
         {
           "value": "bunny",
-          "synonyms": ["Rabbit", "Hare"]
+          "synonyms": [
+            "rabbit",
+            "hare",
+            "bunny rabbit"
+          ]
         }
       ]
     },
     "GameName": {
-      "values": ["memory", "quiz", "charades"]
+      "values": [
+        "memory",
+        "quiz",
+        "charades"
+      ]
     },
     "AnswerValue": {
-      "values": ["true", "false", "a", "b", "c", "d"]
+      "values": [
+        {
+          "value": "dog",
+          "synonyms": [
+            "puppy",
+            "doggy"
+          ]
+        },
+        {
+          "value": "cat",
+          "synonyms": [
+            "kitten",
+            "kitty"
+          ]
+        },
+        {
+          "value": "bunny",
+          "synonyms": [
+            "rabbit"
+          ]
+        },
+        {
+          "value": "bird",
+          "synonyms": [
+            "parrot"
+          ]
+        },
+        {
+          "value": "fish",
+          "synonyms": [
+            "goldfish"
+          ]
+        },
+        {
+          "value": "turtle",
+          "synonyms": [
+            "tortoise"
+          ]
+        },
+        {
+          "value": "hamster"
+        },
+        {
+          "value": "carrots",
+          "synonyms": [
+            "carrot"
+          ]
+        },
+        {
+          "value": "bones",
+          "synonyms": [
+            "bone"
+          ]
+        },
+        {
+          "value": "two",
+          "synonyms": [
+            "2"
+          ]
+        },
+        {
+          "value": "four",
+          "synonyms": [
+            "4"
+          ]
+        },
+        {
+          "value": "six",
+          "synonyms": [
+            "6"
+          ]
+        },
+        {
+          "value": "meow"
+        },
+        {
+          "value": "woof"
+        },
+        {
+          "value": "squeak"
+        }
+      ]
     }
   },
   "alexa": {
@@ -101,7 +289,10 @@
             "name": "AMAZON.StopIntent",
             "samples": []
           },
-          { "name": "AMAZON.FallbackIntent", "samples": [] },
+          {
+            "name": "AMAZON.FallbackIntent",
+            "samples": []
+          },
           {
             "name": "AMAZON.NextIntent",
             "samples": []

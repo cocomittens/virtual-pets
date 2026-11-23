@@ -5,22 +5,20 @@ import { Feed } from './Feed';
 import { Customize } from './customize/Customize';
 import { Shopping } from './customize/Shopping';
 import { PlayGame } from './minigames/PlayGame';
+import { CreatePet } from '../ftue/CreatePet';
 
 import { MenuOutput } from '../../output/MenuOutput';
 import { MainMenuVisuals } from '../../apl/mainMenu';
+import { loadPet } from '../../util/pet';
 
-/*
-|--------------------------------------------------------------------------
-| Component
-|--------------------------------------------------------------------------
-|
-| A component consists of handlers that respond to specific user requests
-| Learn more here: www.jovo.tech/docs/components, jovo.tech/docs/handlers
-|
-*/
 @Component()
 export class MainMenu extends BaseComponent {
   START() {
+    const pet = loadPet(this);
+    if (!pet) {
+      return this.$redirect(CreatePet);
+    }
+
     if (this.$device.supports(AlexaCapability.Apl)) {
       this.$output.push({
         platforms: {
@@ -30,8 +28,8 @@ export class MainMenu extends BaseComponent {
                 directives: [
                   {
                     type: 'Alexa.Presentation.APL.RenderDocument',
-                    token: 'introToken',
-                    document: MainMenuVisuals(),
+                    token: 'mainMenuToken',
+                    document: MainMenuVisuals(pet),
                   },
                 ],
               },
@@ -41,7 +39,9 @@ export class MainMenu extends BaseComponent {
       });
     }
 
-    return this.$send(MenuOutput, { message: 'What would you like to do?' });
+    return this.$send(MenuOutput, {
+      message: `What would you like to do: play a game, feed ${pet.name}, or go shopping?`,
+    });
   }
 
   @Intents(['FeedIntent'])
@@ -62,6 +62,12 @@ export class MainMenu extends BaseComponent {
   @Intents(['PlayGameIntent'])
   goPlayGame() {
     return this.$redirect(PlayGame);
+  }
+
+  // "play charades" straight from the menu
+  @Intents(['ChooseGameIntent'])
+  goChosenGame() {
+    return this.$redirect(PlayGame, 'chooseGame');
   }
 
   UNHANDLED() {

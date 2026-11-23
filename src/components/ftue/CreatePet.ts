@@ -1,37 +1,62 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
 import { ChoosePetOutput } from '../../output/ChoosePetOutput';
 import { Tutorial } from './Tutorial';
+import { heard } from '../../util/heard';
+import { capitalize } from '../../util/capitalize';
+import { createPet, PET_TYPES, PetType, savePet } from '../../util/pet';
 
 /*
 |--------------------------------------------------------------------------
-| Component
+| First-time flow: choose a pet type, then give it a name
 |--------------------------------------------------------------------------
-|
-| A component consists of handlers that respond to specific user requests
-| Learn more here: www.jovo.tech/docs/components, jovo.tech/docs/handlers
-|
 */
 @Component()
 export class CreatePet extends BaseComponent {
   START() {
+    delete this.$session.data.newPetType;
+    return this.askType();
+  }
+
+  askType(prefix = '') {
     return this.$send(ChoosePetOutput, {
-      message: 'Do you want to adopt a dog, cat or bunny?',
+      message: `${prefix}Would you like to adopt a dog, a cat, or a bunny?`,
+    });
+  }
+
+  askName(prefix = '') {
+    const type = this.$session.data.newPetType as PetType;
+    return this.$send({
+      message: `${prefix}What would you like to name your ${type}?`,
       listen: true,
     });
   }
 
-  @Intents(['PetTypeIntent'])
-  collectPetType() {
-    // ensure session data is initialized
-    const data = (this.$session.$data as any) ?? {};
-    data.petType = this.$entities.petType?.resolved;
-    // save back to session
-    this.$session.$data = data;
-    // proceed to tutorial
+  // Both steps answer with a single word, so one handler routes on the current step
+  @Intents(['PetTypeIntent', 'AnswerIntent', 'NameIntent'])
+  collect() {
+    const type = this.$session.data.newPetType as PetType | undefined;
+
+    if (!type) {
+      const choice = heard(this) as PetType | undefined;
+      if (!choice || !PET_TYPES.includes(choice)) {
+        return this.askType("Sorry, I didn't catch that. ");
+      }
+      this.$session.data.newPetType = choice;
+      return this.askName(`A ${choice}, great choice! `);
+    }
+
+    const name = heard(this, true);
+    if (!name) {
+      return this.askName("Sorry, I didn't catch that. ");
+    }
+    savePet(this, createPet(type, capitalize(name)));
+    delete this.$session.data.newPetType;
     return this.$redirect(Tutorial);
   }
 
   UNHANDLED() {
-    return this.START();
+    return this.$session.data.newPetType
+      ? this.askName("Sorry, I didn't catch that. You can say something like, call it Biscuit. ")
+      : this.askType("Sorry, I didn't catch that. ");
   }
 }

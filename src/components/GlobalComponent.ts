@@ -1,6 +1,7 @@
 import { Component, BaseComponent, Global, Handle } from '@jovotech/framework';
-import { Intro } from './ftue/Intro';
+import { CreatePet } from './ftue/CreatePet';
 import { MainMenu } from './menu/MainMenu';
+import { loadPet, statusLine } from '../util/pet';
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,14 @@ import { MainMenu } from './menu/MainMenu';
 @Global()
 @Component()
 export class GlobalComponent extends BaseComponent {
-
   LAUNCH() {
-    return this.$redirect(Intro);
+    const pet = loadPet(this);
+    if (!pet) {
+      this.$send('Welcome to Pixel Pals, where you raise your very own virtual pet!');
+      return this.$redirect(CreatePet);
+    }
+    this.$send(`Welcome back to Pixel Pals! ${statusLine(pet)}`);
+    return this.$redirect(MainMenu);
   }
 
   // prioritizedOverUnhandled: without it, each component's UNHANDLED swallows these
@@ -36,7 +42,7 @@ export class GlobalComponent extends BaseComponent {
   @Handle({ global: true, prioritizedOverUnhandled: true, intents: ['AMAZON.HelpIntent'] })
   help() {
     this.$send(
-      'You can play a game, feed your pet, customize your pet, or go shopping. Say menu at any time to come back here, or stop to exit.',
+      'Play games to earn coins, spend coins on food at the shop, and feed your pet to keep it full and happy. Say menu at any time to come back here, or stop to exit.',
     );
     return this.$redirect(MainMenu);
   }

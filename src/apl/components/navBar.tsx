@@ -44,6 +44,7 @@ export const NavBar = (props: NavBarProps) => {
 
   return {
     type: 'Container',
+    width: '90vw',
     direction: 'row',
     justifyContent: 'spaceBetween',
     items: [

@@ -12,7 +12,6 @@ import { Shopping } from './components/menu/customize/Shopping';
 import { Memory } from './components/menu/minigames/Memory';
 import { Charades } from './components/menu/minigames/Charades';
 import { Quiz } from './components/menu/minigames/Quiz';
-import { Intro } from './components/ftue/Intro';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +34,6 @@ const app = new App({
   */
   components: [
     GlobalComponent,
-    Intro,
     Tutorial,
     CreatePet,
     MainMenu,

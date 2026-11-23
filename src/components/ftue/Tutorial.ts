@@ -1,20 +1,15 @@
-import { Component, BaseComponent, Intents } from '@jovotech/framework';
+import { Component, BaseComponent } from '@jovotech/framework';
 import { MainMenu } from '../menu/MainMenu';
+import { loadPet } from '../../util/pet';
 
-/*
-|--------------------------------------------------------------------------
-| Component
-|--------------------------------------------------------------------------
-|
-| A component consists of handlers that respond to specific user requests
-| Learn more here: www.jovo.tech/docs/components, jovo.tech/docs/handlers
-|
-*/
 @Component()
 export class Tutorial extends BaseComponent {
   START() {
-    // show tutorial message, then navigate to main menu
-    this.$send('This is how to take care of your new pet!');
+    const pet = loadPet(this);
+    const name = pet?.name ?? 'your pet';
+    this.$send(
+      `Say hello to ${name}! Here is how it works: play games to earn coins, spend coins on food at the shop, and feed ${name} to keep your pet full and happy. ${name} is a little hungry right now, and you have one snack to start with.`,
+    );
     return this.$redirect(MainMenu);
   }
 

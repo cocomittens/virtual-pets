@@ -1,18 +1,30 @@
-import { Component, BaseComponent, Intents } from '@jovotech/framework';
+import { Component, BaseComponent } from '@jovotech/framework';
+import { MainMenu } from './MainMenu';
+import { feed, loadPet, savePet } from '../../util/pet';
 
-/*
-|--------------------------------------------------------------------------
-| Component
-|--------------------------------------------------------------------------
-|
-| A component consists of handlers that respond to specific user requests
-| Learn more here: www.jovo.tech/docs/components, jovo.tech/docs/handlers
-|
-*/
 @Component()
 export class Feed extends BaseComponent {
   START() {
-    return this.$send('Feed pet');
+    const pet = loadPet(this);
+    if (!pet) {
+      return this.$redirect(MainMenu);
+    }
+
+    if (pet.food < 1) {
+      this.$send(`You are out of food. Play a game to earn coins, then buy more at the shop.`);
+      return this.$redirect(MainMenu);
+    }
+
+    if (pet.fullness >= 90) {
+      this.$send(`${pet.name} is already full, so let's save the food for later.`);
+      return this.$redirect(MainMenu);
+    }
+
+    const fed = savePet(this, feed(pet));
+    this.$send(
+      `Yum! ${fed.name} gobbles it up and is now ${fed.fullness} percent full. You have ${fed.food} food left.`,
+    );
+    return this.$redirect(MainMenu);
   }
 
   UNHANDLED() {
